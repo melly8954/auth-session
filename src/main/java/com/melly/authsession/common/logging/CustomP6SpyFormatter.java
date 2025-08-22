@@ -1,4 +1,4 @@
-package com.melly.authsession.logging;
+package com.melly.authsession.common.logging;
 
 import com.p6spy.engine.logging.Category;
 import com.p6spy.engine.spy.appender.MessageFormattingStrategy;
