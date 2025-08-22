@@ -2,6 +2,7 @@ package com.melly.authsession.service;
 
 import com.melly.authsession.common.enums.ErrorType;
 import com.melly.authsession.common.excception.CustomException;
+import com.melly.authsession.domain.repository.UserAuthProviderRepository;
 import com.melly.authsession.dto.request.LoginRequestDto;
 import com.melly.authsession.dto.response.LoginResponseDto;
 import jakarta.servlet.http.Cookie;
@@ -23,7 +24,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
-
 
     @Override
     public LoginResponseDto login(HttpServletRequest httpRequest, LoginRequestDto dto) {
