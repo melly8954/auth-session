@@ -29,6 +29,18 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
         String providerUserId = oAuth2User.getName(); // OAuth2User.getName()은 provider user id
 
         UserEntity user = userRepository.findByEmail(email)
+                .map(existingUser -> {
+                    // 기존 유저인데 소셜 정보가 없으면 추가
+                    if (!userAuthProviderRepository.existsByUserAndProvider(existingUser, provider)) {
+                        UserAuthProviderEntity authProvider = UserAuthProviderEntity.builder()
+                                .user(existingUser)
+                                .provider(provider)
+                                .providerId(providerUserId)
+                                .build();
+                        userAuthProviderRepository.save(authProvider);
+                    }
+                    return existingUser;
+                })
                 .orElseGet(() -> registerNewSocialUser(email, provider, providerUserId));
 
         return new PrincipalDetails(user, oAuth2User.getAttributes());
