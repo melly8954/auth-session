@@ -6,6 +6,7 @@ import com.melly.authsession.dto.request.LoginRequestDto;
 import com.melly.authsession.dto.response.LoginResponseDto;
 import com.melly.authsession.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,11 @@ public class AuthController implements ResponseController {
                                                                HttpServletRequest httpRequest) {
         LoginResponseDto response = authService.login(httpRequest, loginRequestDto);
         return makeResponseEntity(HttpStatus.OK, null, response.getMessage(), response);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<ResponseDto<Void>> logout(HttpServletRequest request, HttpServletResponse response) {
+        authService.logout(request, response);
+        return makeResponseEntity(HttpStatus.OK, null, "로그아웃 성공", null);
     }
 }

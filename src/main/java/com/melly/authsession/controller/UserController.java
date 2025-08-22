@@ -7,10 +7,7 @@ import com.melly.authsession.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,4 +21,8 @@ public class UserController implements ResponseController {
         return makeResponseEntity(HttpStatus.OK, null, "회원가입 성공", null);
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<ResponseDto<String>> test() {
+        return makeResponseEntity(HttpStatus.OK, null, "users 테스트 성공", "users ok");
+    }
 }
