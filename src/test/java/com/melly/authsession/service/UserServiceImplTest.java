@@ -24,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("UserServiceImpl 단위 테스트")
 public class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;

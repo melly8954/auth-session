@@ -31,6 +31,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("AuthServiceImpl 단위 테스트")
 public class AuthServiceImplTest {
     @Mock private AuthenticationManager authenticationManager;
     @Mock private HttpServletRequest httpRequest;
