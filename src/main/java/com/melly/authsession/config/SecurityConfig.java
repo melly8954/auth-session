@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.melly.authsession.common.auth.*;
 import com.melly.authsession.domain.repository.UserRepository;
 import com.melly.authsession.dto.response.OAuth2LoginResponseDto;
-import com.melly.authsession.service.OAuth2LoginService;
+import com.melly.authsession.service.OAuth2Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ public class SecurityConfig {
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final CustomAccessDeniedHandler customAccessDeniedHandler;
     private final PrincipalOAuth2UserService principalOAuth2UserService;
-    private final OAuth2LoginService oauth2LoginService;
+    private final OAuth2Service oauth2Service;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -59,7 +59,7 @@ public class SecurityConfig {
                             String registrationId = token.getAuthorizedClientRegistrationId();
 
                             PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
-                            OAuth2LoginResponseDto dto = oauth2LoginService.loginWithOAuth(principalDetails, request, registrationId);
+                            OAuth2LoginResponseDto dto = oauth2Service.loginWithOAuth(principalDetails, request, registrationId);
 
                             response.setContentType("application/json");
                             response.setCharacterEncoding("UTF-8");

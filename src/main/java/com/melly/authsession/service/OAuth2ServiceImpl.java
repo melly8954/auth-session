@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class OAuth2LoginServiceImpl implements OAuth2LoginService {
+public class OAuth2ServiceImpl implements OAuth2Service {
 
     private final UserAuthProviderRepository userAuthProviderRepository;
 

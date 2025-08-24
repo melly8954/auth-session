@@ -27,14 +27,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("OAuth2LoginServiceImpl 단위 테스트")
-public class OAuth2LoginServiceImplTest {
+@DisplayName("OAuth2ServiceImpl 단위 테스트")
+public class OAuth2ServiceImplTest {
     @Mock private UserAuthProviderRepository userAuthProviderRepository;
     @Mock private PrincipalDetails principal;
     @Mock private HttpServletRequest request;
     @Mock private HttpSession session;
 
-    @InjectMocks private OAuth2LoginServiceImpl oAuth2LoginService;
+    @InjectMocks private OAuth2ServiceImpl oAuth2LoginService;
 
     private UserEntity userEntity;
     private UserAuthProviderEntity authProviderEntity;
