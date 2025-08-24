@@ -26,8 +26,9 @@ Spring Security 기반 **세션 인증** 학습/실습 프로젝트입니다.
 **주요 기능**
 - 회원가입 / 로그인 / 로그아웃
   - 세션 기반 인증 (`UsernamePasswordAuthenticationToken`)
-  - SecurityContext + HttpSession 저장
-- OAuth2 로그인: Google, Kakao 등 소셜 계정 연동 (환경변수로 클라이언트 ID/Secret 관리)
+  - `SecurityContext` + `HttpSession` 저장
+  - 로그아웃 시 `SecurityContext` 초기화 + 세션 무효화 + `JSESSIONID` 쿠키 삭제
+- OAuth2 로그인: Google 소셜 계정 연동 (환경변수로 클라이언트 ID/Secret 관리)
 - 인증/인가 실패 예외 처리 (`401`, `403`)
 - 테스트 커버리지
   - 회원가입, 로그인, 로그아웃, 소셜 로그인<br><br>
