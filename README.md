@@ -63,7 +63,7 @@ REDIS_HOST_PORT=6380
 ./gradlew build
 ```
 
-**5️⃣ 애플리케이션 실행**
+**3️⃣ 애플리케이션 실행**
 ```bash
 docker-compose --env-file ../.env -p auth-session-app up -d
 ```
