@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # 3. Gradle 빌드 파일 복사
-COPY build/libs/*.jar app.jar
+COPY build/libs/auth-session-0.0.1-SNAPSHOT.jar app.jar
 
 # 4. 포트 노출
 EXPOSE 8080
