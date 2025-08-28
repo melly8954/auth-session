@@ -14,7 +14,9 @@ services:
       - mysql-data:/var/lib/mysql
 
   app:
-    build: .                      # 현재 디렉토리의 Dockerfile로 빌드
+    build:            # 현재 디렉토리의 Dockerfile로 빌드
+      context: ..
+      dockerfile: docker/Dockerfile
     image: auth-session:latest    # 이미지 이름 지정
     container_name: auth-session-app
     environment:
