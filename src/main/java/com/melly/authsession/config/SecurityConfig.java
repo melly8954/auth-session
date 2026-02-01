@@ -40,8 +40,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/v1/users",
-                                "/api/v1/auth/login",
-                                "/api/v1/auth/logout")
+                                "/api/v1/auth/login")
                         .permitAll()
                         .requestMatchers(
                                 "/api/v1/admins/**")
